@@ -18,39 +18,38 @@ const main = async () => {
         },
     });
 
-    // Uncomment the following code and run this script to create teachers
+    // Teachers
+    const johanp = await prisma.teacher.create({
+        data: {
+            user: {
+                create: {
+                    username: 'johanp',
+                    password: await bcrypt.hash('johanp123', 12),
+                    firstName: 'Johan',
+                    lastName: 'Pieck',
+                    email: 'johan.pieck@ucll.be',
+                    role: 'teacher',
+                },
+            },
+            learningPath: 'Software development',
+        },
+    });
 
-    // const johanp = await prisma.teacher.create({
-    //     data: {
-    //         user: {
-    //             create: {
-    //                 username: 'johanp',
-    //                 password: await bcrypt.hash('johanp123', 12),
-    //                 firstName: 'Johan',
-    //                 lastName: 'Pieck',
-    //                 email: 'johan.pieck@ucll.be',
-    //                 role: 'teacher',
-    //             },
-    //         },
-    //         learningPath: 'Software development',
-    //     },
-    // });
-
-    // const tiebev = await prisma.teacher.create({
-    //     data: {
-    //         user: {
-    //             create: {
-    //                 username: 'tiebev',
-    //                 password: await bcrypt.hash('tiebev123', 12),
-    //                 firstName: 'Tiebe',
-    //                 lastName: 'Van Nieuwenhove',
-    //                 email: 'tiebe.vannieuwenhove@ucll.be',
-    //                 role: 'teacher',
-    //             },
-    //         },
-    //         learningPath: 'Infrastructure',
-    //     },
-    // });
+    const tiebev = await prisma.teacher.create({
+        data: {
+            user: {
+                create: {
+                    username: 'tiebev',
+                    password: await bcrypt.hash('tiebev123', 12),
+                    firstName: 'Tiebe',
+                    lastName: 'Van Nieuwenhove',
+                    email: 'tiebe.vannieuwenhove@ucll.be',
+                    role: 'teacher',
+                },
+            },
+            learningPath: 'Infrastructure',
+        },
+    });
 };
 
 (async () => {
