@@ -1,5 +1,6 @@
 import TeacherService from '@services/TeacherService';
 import { useState } from 'react';
+import {mutate} from "swr";
 
 type Props = {
   teacherId: number;
@@ -7,9 +8,19 @@ type Props = {
 };
 
 const LearningPath: React.FC<Props> = ({ teacherId, learningPath }: Props) => {
-  const handleLearningPathChange = (event: { target: { value: string } }) => {
-    {
-      /* Use TeacherService to update the learning path for the teacher */
+  const handleLearningPathChange = async (event: { target: { value: string } }) => {
+    const newLearningPath = event.target.value;
+
+    try {
+      const response = await TeacherService.updateLearningPath(teacherId, newLearningPath);
+
+      if (response.ok) {
+        mutate('Teachers');
+      } else {
+        console.error('Failed to update learning path');
+      }
+    } catch (error) {
+      console.error('Error updating learning path:', error);
     }
   };
 
