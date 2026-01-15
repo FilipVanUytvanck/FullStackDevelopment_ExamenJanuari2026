@@ -1,0 +1,29 @@
+{
+  "app.title": "Exam App",
+  "general.error": "An error has occurred. Please try again later.",
+  "header": {
+    "welcome": "Welcome",
+    "nav": {
+      "home": "Home",
+      "classrooms": "Classrooms",
+      "teachers": "Teachers",
+      "add-teacher": "Add Teacher",
+      "login": "Login",
+      "logout": "Logout"
+    }
+  },
+  "login": {
+    "title": "Login",
+    "button": "Login",
+    "success": "Login succesful. Redirecting to homepage...",
+    "validate": {
+      "name": "Name is required",
+      "password": "Password is required"
+    },
+    "label": { "username": "Username:", "password": "Password:" }
+  },
+  "home": {
+    "title": "Good luck with the exam!",
+    "description": ""
+  }
+}
