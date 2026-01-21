@@ -5,7 +5,7 @@
     "welcome": "Welcome",
     "nav": {
       "home": "Home",
-      "classrooms": "Classrooms",
+      "classroom": "Add Classroom",
       "teachers": "Teachers",
       "add-teacher": "Add Teacher",
       "login": "Login",
@@ -25,5 +25,20 @@
   "home": {
     "title": "Good luck with the exam!",
     "description": ""
+  },
+  "classroom": {
+    "title": "Add Classroom",
+    "label": {
+      "name": "Classroom Name:"
+    },
+    "button": "Add Classroom",
+    "success": "Classroom successfully added with ID: {{id}}",
+    "validate": {
+      "name": "Name is required"
+    },
+    "error": {
+      "unauthorized": "You do not have permission to access this page.",
+      "duplicate": "A classroom with this name already exists."
+    }
   }
 }

@@ -1,48 +1,48 @@
 import Header from '@components/header';
 import TeacherOverview from '@components/teachers/TeacherOverview';
 import TeacherService from '@services/TeacherService';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import useSWR from 'swr';
 
 const Teachers: React.FC = () => {
-  const fetcher = async (key: string) => {
-      const response = await TeacherService.getAllTeachers();
-      if (!response.ok) {
-          throw new Error('Failed to fetch teachers');
-      }
-      return response.json();
-  };
+    const fetcher = async (key: string) => {
+        const response = await TeacherService.getAllTeachers();
+        if (!response.ok) {
+            throw new Error('Failed to fetch teachers');
+        }
+        return response.json();
+    };
 
-  const { data, isLoading, error } = useSWR('Teachers', fetcher);
+    const {data, isLoading, error} = useSWR('Teachers', fetcher);
 
-  return (
-    <>
-      <Head>
-        <title>Teachers</title>
-      </Head>
-      <Header />
-      <main className="p-6 min-h-screen flex flex-col items-center">
-        <h1>Teachers</h1>
+    return (
+        <>
+            <Head>
+                <title>Teachers</title>
+            </Head>
+            <Header/>
+            <main className="p-6 min-h-screen flex flex-col items-center">
+                <h1>Teachers</h1>
 
-        <section className="mt-5">
-          {error && <p className="text-danger">{error}</p>}
-          {isLoading && <p>Loading...</p>}
-            {data && <TeacherOverview teachers={data} />}
-        </section>
-      </main>
-    </>
-  );
+                <section className="mt-5">
+                    {error && <p className="text-danger">{error}</p>}
+                    {isLoading && <p>Loading...</p>}
+                    {data && <TeacherOverview teachers={data}/>}
+                </section>
+            </main>
+        </>
+    );
 };
 
 export const getServerSideProps = async (context) => {
-  const { locale } = context;
+    const {locale} = context;
 
-  return {
-    props: {
-      ...(await serverSideTranslations(locale ?? 'en', ['common'])),
-    },
-  };
+    return {
+        props: {
+            ...(await serverSideTranslations(locale ?? 'en', ['common'])),
+        },
+    };
 };
 
 export default Teachers;

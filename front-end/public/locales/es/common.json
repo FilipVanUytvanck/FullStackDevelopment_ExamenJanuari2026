@@ -5,6 +5,7 @@
     "welcome": "Bienvenido",
     "nav": {
       "home": "Inicio",
+      "classroom": "Añadir Aula",
       "teams": "Grupos",
       "coaches": "Entrenadores",
       "login": "Conéctese",
@@ -24,5 +25,20 @@
   "home": {
     "title": "Bienvenido!",
     "description": "Cursos le permite ver como profesor todos los cursos que está impartiendo y como alumno todos los cursos en los que está matriculado. También puede ver cuándo están programados los cursos y los alumnos matriculados en cada curso."
+  },
+  "classroom": {
+    "title": "Añadir Aula",
+    "label": {
+      "name": "Nombre del Aula:"
+    },
+    "button": "Añadir Aula",
+    "success": "Aula añadida exitosamente con ID: {{id}}",
+    "validate": {
+      "name": "Se requiere nombre"
+    },
+    "error": {
+      "unauthorized": "No tiene permiso para acceder a esta página.",
+      "duplicate": "Ya existe un aula con este nombre."
+    }
   }
 }
